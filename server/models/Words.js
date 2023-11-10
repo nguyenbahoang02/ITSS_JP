@@ -22,6 +22,8 @@ module.exports = (sequelize) => {
       through: models.SearchHistory,
     });
     Words.hasMany(models.SearchHistory);
+    
+    Words.hasMany(models.LessonWords);
   };
 
   return Words;
