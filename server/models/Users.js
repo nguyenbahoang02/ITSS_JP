@@ -25,6 +25,8 @@ module.exports = (sequelize) => {
       through: models.SearchHistory,
     });
     Users.hasMany(models.SearchHistory);
+    Users.hasMany(models.Progress);
+
   };
 
   return Users;

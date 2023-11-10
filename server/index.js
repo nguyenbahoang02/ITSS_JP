@@ -26,6 +26,12 @@ app.use("/meanings", meaningRouters);
 const examplesRouters = require("./routes/Examples");
 app.use("/examples", examplesRouters);
 
+const lessonsRouters = require("./routes/Lessons");
+app.use("/lessons", lessonsRouters);
+
+const progressRouters = require("./routes/Progress");
+app.use("/progress", progressRouters);
+
 db.sequelize.sync().then(() => {
   app.listen("3001", () => {
     console.log("Server running on port 3001!");
