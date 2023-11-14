@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { Lessons, LessonWords, Words } = require("../models");
+const { Lessons, LessonWords, Words, FlashCards } = require("../models");
 const { validateToken } = require("../middlewares/AuthMiddleware");
 
 // Get all words of Lesson
@@ -49,7 +49,28 @@ router.post("/:lessonId/:wordId", validateToken, async (req, res) => {
   const LessonId = parseInt(req.params.lessonId);
   const WordId = parseInt(req.params.wordId);
   try {
-    await LessonWords.create({ LessonId, WordId });
+    const flashCard = await FlashCards.create({ WordId, LessonId });
+    await LessonWords.create({ LessonId, WordId, FlashCardId: flashCard.id });
+    res.json("SUCCESS!");
+  } catch (error) {
+    res.json(error);
+  }
+});
+
+// Update Lesson
+router.put("/:lessonId", validateToken, async (req, res) => {
+  if (req.user.RoleId !== 2) {
+    return res.json("You are not authorization!");
+  }
+
+  const LessonId = parseInt(req.params.lessonId);
+  const { words } = req.body;
+
+  try {
+    await LessonWords.destroy({ where: { LessonId } });
+    words.map(async (WordId) => {
+      await LessonWords.create({ LessonId, WordId });
+    });
     res.json("SUCCESS!");
   } catch (error) {
     res.json(error);

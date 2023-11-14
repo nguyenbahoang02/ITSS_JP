@@ -32,6 +32,12 @@ app.use("/lessons", lessonsRouters);
 const progressRouters = require("./routes/Progress");
 app.use("/progress", progressRouters);
 
+const requestRouters = require("./routes/Requests");
+app.use("/requests", requestRouters);
+
+const flashCardRouters = require("./routes/FlashCards");
+app.use("/flashCards", flashCardRouters);
+
 db.sequelize.sync().then(() => {
   app.listen("3001", () => {
     console.log("Server running on port 3001!");
