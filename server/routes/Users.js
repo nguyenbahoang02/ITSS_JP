@@ -54,7 +54,7 @@ router.post("/login", async (req, res) => {
     const accessToken = sign(
       { username: User.name, id: User.id, RoleId: User.RoleId },
       "secretkey",
-      { expiresIn: "1h" }
+      { expiresIn: "4h" }
     );
 
     return res.json({ name: User.name, email: User.email, token: accessToken });

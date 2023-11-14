@@ -5,7 +5,6 @@ module.exports = (sequelize) => {
     status: {
       type: DataTypes.FLOAT,
       allowNull: false,
-      unique: true,
     },
   });
 

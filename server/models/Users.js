@@ -27,6 +27,10 @@ module.exports = (sequelize) => {
     Users.hasMany(models.SearchHistory);
     Users.hasMany(models.Progress);
 
+    Users.hasMany(models.Requests, {
+      onDelete: "cascade",
+      allowNull: false,
+    });
   };
 
   return Users;

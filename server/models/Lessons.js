@@ -15,6 +15,7 @@ module.exports = (sequelize) => {
     });
     Lessons.hasMany(models.LessonWords);
     Lessons.hasMany(models.Progress);
+    Lessons.hasMany(models.FlashCards);
 
   };
 
