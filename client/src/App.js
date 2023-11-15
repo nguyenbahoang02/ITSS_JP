@@ -1,13 +1,9 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 function App() {
-    return (
-        <BrowserRouter>
-            <Switch>
-                {/* <Route component={NotFound} /> */}
-            </Switch>
-        </BrowserRouter>
-    );
+    return <BrowserRouter>
+      
+    </BrowserRouter>;
 }
 
 export default App;
