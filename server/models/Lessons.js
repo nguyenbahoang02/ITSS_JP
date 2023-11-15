@@ -16,7 +16,7 @@ module.exports = (sequelize) => {
     Lessons.hasMany(models.LessonWords);
     Lessons.hasMany(models.Progress);
     Lessons.hasMany(models.FlashCards);
-
+    Lessons.hasMany(models.Quizzes);
   };
 
   return Lessons;
