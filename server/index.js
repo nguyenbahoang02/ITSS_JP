@@ -38,6 +38,12 @@ app.use("/requests", requestRouters);
 const flashCardRouters = require("./routes/FlashCards");
 app.use("/flashCards", flashCardRouters);
 
+const quizRouters = require("./routes/Quizzes");
+app.use("/quizzes", quizRouters);
+
+const questionRouters = require("./routes/Questions");
+app.use("/questions", questionRouters);
+
 db.sequelize.sync().then(() => {
   app.listen("3001", () => {
     console.log("Server running on port 3001!");
