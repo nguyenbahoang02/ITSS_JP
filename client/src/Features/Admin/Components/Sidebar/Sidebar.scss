@@ -1,0 +1,17 @@
+.sidebar {
+    .ant-menu-submenu-selected {
+        .ant-menu-submenu-title {
+            color: #ffffff;
+        }
+    }
+    .ant-menu-item {
+        &:hover {
+            background-color: var(--primary) !important;
+            color: #ffffff !important;
+        }
+    }
+    .ant-menu-item-selected {
+        background-color: var(--primary);
+        color: #ffffff;
+    }
+}
