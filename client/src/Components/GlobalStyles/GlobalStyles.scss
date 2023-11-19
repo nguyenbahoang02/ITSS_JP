@@ -1,7 +1,7 @@
 @import 'normalize.css';
 
 :root {
-    --primary: #fe2c55;
+    --primary: #0e8585;
     --black: #000;
     --white: #fff;
     --text-color: #161823;
@@ -57,4 +57,30 @@ input,
 a {
     color: var(--text-color);
     text-decoration: none;
+}
+
+input {
+    outline: none !important;
+    &:hover,
+    &:active,
+    &:focus {
+        border-color: var(--primary) !important;
+    }
+}
+.ant-btn-primary {
+    background-color: var(--primary);
+    &:hover {
+        opacity: 0.8;
+        background-color: var(--primary) !important;
+    }
+    &:disabled {
+        opacity: 1;
+        background-color: rgba(0, 0, 0, 0.04) !important;
+    }
+}
+.ant-btn-default {
+    &:hover {
+        color: var(--primary) !important;
+        border-color: var(--primary) !important;
+    }
 }
