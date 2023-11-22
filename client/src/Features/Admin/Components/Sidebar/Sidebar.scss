@@ -14,4 +14,11 @@
         background-color: var(--primary);
         color: #ffffff;
     }
+    .ant-menu-item-disabled {
+        color: #ccc !important;
+        &:hover {
+            background-color: #000c17 !important;
+            color: #ccc !important;
+        }
+    }
 }

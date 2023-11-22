@@ -1,24 +1,22 @@
 import React, { useState } from 'react';
-import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
+import { AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
 import { Menu } from 'antd';
 import './Sidebar.scss';
+import { useDispatch, useSelector } from 'react-redux';
+import { setTab } from 'Features/Admin/tabSlice';
+import { useNavigate } from 'react-router-dom';
 
-function getItem(label, key, icon, children, type) {
+function getItem(label, key, icon, children, disabled) {
     return {
         key,
         icon,
         children,
         label,
-        type,
+        disabled,
     };
 }
 const items = [
-    getItem('Manage Words', 'sub1', <></>, [
-        getItem('Create word', '1'),
-        getItem('Read word', '2'),
-        getItem('Update word', '3'),
-        getItem('Delete word', '4'),
-    ]),
+    getItem('Manage Words', 'sub1', null, [getItem('Create word', '1'), getItem('Read word', '2')]),
     getItem('Navigation Two', 'sub2', <AppstoreOutlined />, [
         getItem('Option 5', '5'),
         getItem('Option 6', '6'),
@@ -34,7 +32,11 @@ const items = [
 
 // submenu keys of first level
 const rootSubmenuKeys = ['sub1', 'sub2', 'sub4'];
-const Sidebar = ({ tab, setTab }) => {
+const Sidebar = () => {
+    const { tab } = useSelector((state) => state.tab);
+
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
     const [openKeys, setOpenKeys] = useState(['sub1']);
     const onOpenChange = (keys) => {
         const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
@@ -49,7 +51,8 @@ const Sidebar = ({ tab, setTab }) => {
             <Menu
                 mode="inline"
                 onSelect={(event) => {
-                    setTab(event.key);
+                    navigate('/admin');
+                    dispatch(setTab(event.key));
                 }}
                 openKeys={openKeys}
                 onOpenChange={onOpenChange}
@@ -59,6 +62,7 @@ const Sidebar = ({ tab, setTab }) => {
                     backgroundColor: '#000c17',
                     color: '#ffffff',
                 }}
+                defaultSelectedKeys={tab}
                 items={items}
             />
         </div>
