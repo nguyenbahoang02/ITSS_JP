@@ -84,3 +84,20 @@ input {
         border-color: var(--primary) !important;
     }
 }
+
+.ant-btn-dangerous {
+    &:hover {
+        opacity: 0.8;
+        background-color: #ff4d4f !important;
+    }
+}
+
+.ant-pagination-item {
+    a {
+        color: var(--primary) !important;
+    }
+    border-color: var(--primary) !important;
+    &:hover {
+        opacity: 0.8;
+    }
+}

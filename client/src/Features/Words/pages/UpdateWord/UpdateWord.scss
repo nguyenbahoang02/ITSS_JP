@@ -1,0 +1,38 @@
+.update-word {
+    .admin-selected-feature {
+        min-width: 70vw;
+        min-height: 85vh;
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+        border: 1px solid var(--primary);
+        padding: 1.5rem;
+        .edit-div {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+        .edit-button {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
+        .word {
+            font-size: 4rem;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .furigana {
+            font-size: 2rem;
+            text-align: center;
+        }
+        .meaning-div,
+        .example-div {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+    }
+}

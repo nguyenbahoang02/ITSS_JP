@@ -1,7 +1,7 @@
 import React from 'react';
-import { Button, Form, Input, Space } from 'antd';
-import axios from 'axios';
+import { Button, Form, Input, Space, message } from 'antd';
 import './CreateWord.scss';
+import { useCreateWordMutation } from 'app/api/wordService';
 
 const SubmitButton = ({ form }) => {
     const [submittable, setSubmittable] = React.useState(false);
@@ -28,31 +28,31 @@ const SubmitButton = ({ form }) => {
     );
 };
 const CreateWord = () => {
+    const [createWord] = useCreateWordMutation();
     const [form] = Form.useForm();
 
     const submit = (values) => {
-        console.log(values);
-        axios
-            .post(
-                `${process.env.REACT_APP_BASE_URL}/words`,
-                {
-                    word: {
-                        word: values.word,
-                        furigana: values.furigana,
-                    },
-                    meaning: {
-                        meaning: values.meaning,
-                        description: values.description,
-                    },
+        createWord({
+            data: {
+                word: {
+                    word: values.word,
+                    furigana: values.furigana,
                 },
-                {
-                    headers: {
-                        accessToken:
-                            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkhvYW5nIiwiaWQiOjEsIlJvbGVJZCI6MiwiaWF0IjoxNzAwMzI2MTYyLCJleHAiOjE3MDAzNDA1NjJ9.1hPZNvPtvY1-xJSTmzkpW2iWFSAHJrsqe8LLV7RmCm0',
-                    },
+                meaning: {
+                    meaning: values.meaning,
+                    description: values.description,
                 },
-            )
+            },
+            headers: {
+                accessToken: process.env.REACT_APP_ADMIN_TOKEN,
+            },
+        })
             .then(function (response) {
+                if (response.data.error !== undefined) {
+                    message.error(response.data.error.message);
+                } else if (response.data.errors !== undefined) {
+                    message.error(response.data.errors[0].message);
+                } else message.success('Created word successfully');
                 console.log(response);
             })
             .catch(function (error) {
