@@ -16,7 +16,8 @@ function getItem(label, key, icon, children, disabled) {
     };
 }
 const items = [
-    getItem('Manage Words', 'sub1', null, [getItem('Create word', '1'), getItem('Read word', '2')]),
+    getItem('Manage Words', 'sub1', null, [getItem('Create word', '1'), getItem('Read word', '2'),
+    getItem('Get Word', '3')]),
     getItem('Navigation Two', 'sub2', <AppstoreOutlined />, [
         getItem('Option 5', '5'),
         getItem('Option 6', '6'),
@@ -28,6 +29,9 @@ const items = [
         getItem('Option 11', '11'),
         getItem('Option 12', '12'),
     ]),
+    getItem('User', 'sub5', null,
+        [getItem('Update User', '13'),
+        getItem('Delete User', '14')]),
 ];
 
 // submenu keys of first level
