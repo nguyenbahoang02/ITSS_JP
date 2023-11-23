@@ -3,7 +3,7 @@ import { apiService } from '../store/apiService';
 export const WordService = apiService.injectEndpoints({
     endpoints: (builder) => ({
         getWords: builder.query({
-            query: () => `words`,
+            query: () => `words`, 
             providesTags: ['word'],
         }),
 

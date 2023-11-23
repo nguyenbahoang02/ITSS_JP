@@ -31,7 +31,7 @@ const CreateWord = () => {
     const [createWord] = useCreateWordMutation();
     const [form] = Form.useForm();
 
-    const submit = (values) => {
+    const submit = (values) => { 
         createWord({
             data: {
                 word: {
