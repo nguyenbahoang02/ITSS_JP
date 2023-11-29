@@ -57,7 +57,7 @@ router.post("/login", async (req, res) => {
       { expiresIn: "4h" }
     );
 
-    return res.json({ name: User.name, email: User.email, token: accessToken });
+    return res.json({ name: User.name, email: User.email,roleId:User.RoleId, token: accessToken });
   });
 });
 

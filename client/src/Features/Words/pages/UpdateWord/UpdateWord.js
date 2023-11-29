@@ -83,13 +83,7 @@ function UpdateWord() {
                 }
             }
         }
-        updateWord({
-            id: params.id,
-            data: submitForm,
-            headers: {
-                accessToken: process.env.REACT_APP_ADMIN_TOKEN,
-            },
-        })
+        updateWord({ data: submitForm, id: params.id })
             .then((response) => {
                 if (response.data === 'success') {
                     message.success('Updated word successfully');

@@ -11,12 +11,7 @@ const ReadWord = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const confirm = (id) => {
-        deleteWord({
-            id: id,
-            headers: {
-                accessToken: process.env.REACT_APP_ADMIN_TOKEN,
-            },
-        }).then((response) => {
+        deleteWord(id).then((response) => {
             if (response.data.error !== undefined) {
                 message.error(response.data.error.message);
             } else message.success('Deleted successfully');

@@ -31,20 +31,15 @@ const CreateWord = () => {
     const [createWord] = useCreateWordMutation();
     const [form] = Form.useForm();
 
-    const submit = (values) => { 
+    const submit = (values) => {
         createWord({
-            data: {
-                word: {
-                    word: values.word,
-                    furigana: values.furigana,
-                },
-                meaning: {
-                    meaning: values.meaning,
-                    description: values.description,
-                },
+            word: {
+                word: values.word,
+                furigana: values.furigana,
             },
-            headers: {
-                accessToken: process.env.REACT_APP_ADMIN_TOKEN,
+            meaning: {
+                meaning: values.meaning,
+                description: values.description,
             },
         })
             .then(function (response) {
