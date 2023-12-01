@@ -7,19 +7,22 @@ function CreateRequest() {
     const [createRequest] = useCreateRequestMutation();
     const submit = (values) => {
         createRequest({
-            word: {
-                word: values.word,
-                furigana: values.furigana,
-            },
-            meaning: {
-                meaning: values.meaning,
-                description: values.description,
-            },
+            data: {
+                word: {
+                    word: values.word,
+                    furigana: values.furigana,
+                },
+                meaning: {
+                    meaning: values.meaning,
+                    description: values.description,
+                },
 
-            example: {
-                example: values.example,
-                meaning: values.exampleMeaning,
+                example: {
+                    example: values.example,
+                    meaning: values.exampleMeaning,
+                },
             },
+            headers: { accessToken: JSON.parse(localStorage.getItem('user')).token },
         })
             .then((res) => {
                 message.success('Successfully');

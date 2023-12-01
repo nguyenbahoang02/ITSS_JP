@@ -83,7 +83,11 @@ function UpdateWord() {
                 }
             }
         }
-        updateWord({ data: submitForm, id: params.id })
+        updateWord({
+            data: submitForm,
+            id: params.id,
+            headers: { accessToken: JSON.parse(localStorage.getItem('user')).token },
+        })
             .then((response) => {
                 if (response.data === 'success') {
                     message.success('Updated word successfully');

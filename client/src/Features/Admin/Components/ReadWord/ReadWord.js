@@ -11,12 +11,14 @@ const ReadWord = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const confirm = (id) => {
-        deleteWord(id).then((response) => {
-            if (response.data.error !== undefined) {
-                message.error(response.data.error.message);
-            } else message.success('Deleted successfully');
-            console.log(response);
-        });
+        deleteWord({ id, headers: { accessToken: JSON.parse(localStorage.getItem('user')).token } }).then(
+            (response) => {
+                if (response.data.error !== undefined) {
+                    message.error(response.data.error.message);
+                } else message.success('Deleted successfully');
+                console.log(response);
+            },
+        );
     };
     const cancel = (e) => {
         message.error('Cancelled');

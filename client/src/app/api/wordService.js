@@ -1,5 +1,4 @@
 import { apiService } from '../store/apiService';
-const headers = { accessToken: JSON.parse(localStorage.getItem('user')).token };
 export const WordService = apiService.injectEndpoints({
     endpoints: (builder) => ({
         getWords: builder.query({
@@ -13,7 +12,7 @@ export const WordService = apiService.injectEndpoints({
         }),
 
         deleteWord: builder.mutation({
-            query: (id) => ({
+            query: ({id,headers}) => ({
                 url: `words/delete/${id}`,
                 method: 'DELETE',
                 headers: headers,
@@ -22,7 +21,7 @@ export const WordService = apiService.injectEndpoints({
         }),
 
         updateWord: builder.mutation({
-            query: ({ data, id }) => ({
+            query: ({ data, id,headers }) => ({
                 url: `words/update/${id}`,
                 method: 'PUT',
                 body: data,
@@ -31,7 +30,7 @@ export const WordService = apiService.injectEndpoints({
             invalidatesTags: ['word'],
         }),
         createWord: builder.mutation({
-            query: (data) => ({
+            query: ({data,headers}) => ({
                 url: `words`,
                 method: 'POST',
                 headers: headers,

@@ -1,10 +1,9 @@
 import { apiService } from '../store/apiService';
-const headers = { accessToken: JSON.parse(localStorage.getItem('user')).token };
 
 export const RequestService = apiService.injectEndpoints({
     endpoints: (builder) => ({
         getAllRequest: builder.query({
-            query: () => ({
+            query: (headers) => ({
                 url: `requests`,
                 headers,
             }),
@@ -12,7 +11,7 @@ export const RequestService = apiService.injectEndpoints({
         }),
 
         createRequest: builder.mutation({
-            query: (data) => ({
+            query: ({data,headers}) => ({
                 url: `requests`,
                 method: 'POST',
                 body: data,
@@ -22,7 +21,7 @@ export const RequestService = apiService.injectEndpoints({
         }),
 
         updateRequest: builder.mutation({
-            query: ({ data, id }) => ({
+            query: ({ data, id ,headers}) => ({
                 url: `requests/${id}`,
                 method: 'PUT',
                 body: data,

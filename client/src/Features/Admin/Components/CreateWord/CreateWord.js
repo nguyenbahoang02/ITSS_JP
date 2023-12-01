@@ -33,14 +33,17 @@ const CreateWord = () => {
 
     const submit = (values) => {
         createWord({
-            word: {
-                word: values.word,
-                furigana: values.furigana,
+            data: {
+                word: {
+                    word: values.word,
+                    furigana: values.furigana,
+                },
+                meaning: {
+                    meaning: values.meaning,
+                    description: values.description,
+                },
             },
-            meaning: {
-                meaning: values.meaning,
-                description: values.description,
-            },
+            headers: { accessToken: JSON.parse(localStorage.getItem('user')).token },
         })
             .then(function (response) {
                 if (response.data.error !== undefined) {

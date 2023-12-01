@@ -3,7 +3,11 @@ import { useGetAllRequestQuery, useUpdateRequestMutation } from 'app/api/request
 
 function UpdateRequest() {
     const [update] = useUpdateRequestMutation();
-    const { data: requests, isError, isLoading } = useGetAllRequestQuery();
+    const {
+        data: requests,
+        isError,
+        isLoading,
+    } = useGetAllRequestQuery({ accessToken: JSON.parse(localStorage.getItem('user')).token });
     const updateRequest = (values, approved) => {
         update({
             data: {
@@ -11,6 +15,7 @@ function UpdateRequest() {
                 approved,
             },
             id: values.id,
+            headers: { accessToken: JSON.parse(localStorage.getItem('user')).token },
         })
             .then((res) => {
                 console.log(res);
@@ -67,10 +72,10 @@ function UpdateRequest() {
             render: (_, record) => (
                 <div className="table-actions">
                     <Button type="primary" onClick={() => updateRequest(record, 1)}>
-                        Approved
+                        Approve
                     </Button>
                     <Button type="primary" onClick={() => updateRequest(record, 2)} danger>
-                        Denied
+                        Deny
                     </Button>
                 </div>
             ),

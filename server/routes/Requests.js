@@ -26,7 +26,7 @@ router.post('/', validateToken, async (req, res) => {
             example: example.example,
             exampleMeaning: example.meaning,
             approved: 0,
-            UserId: req.user,
+            UserId: req.user.id,
         });
         res.json(request);
     } catch (error) {
