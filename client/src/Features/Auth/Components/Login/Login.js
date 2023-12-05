@@ -24,10 +24,10 @@ function Login() {
     };
     return (
         <Form form={form} name="normal_login" className="login-form" size="large" onFinish={onFinish}>
-            <Form.Item name="username" rules={[{ required: true, message: 'Please input your Username!' }]}>
-                <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
+            <Form.Item name="username" rules={[{ required: true, message: 'Please type your Email!' }]}>
+                <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Email" />
             </Form.Item>
-            <Form.Item name="password" rules={[{ required: true, message: 'Please input your Password!' }]}>
+            <Form.Item name="password" rules={[{ required: true, message: 'Please type your Password!' }]}>
                 <Input
                     prefix={<LockOutlined className="site-form-item-icon" />}
                     type="password"

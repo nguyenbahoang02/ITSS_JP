@@ -1,17 +1,15 @@
-import React from 'react';
 import { Table, Button, message, Popconfirm } from 'antd';
-import './ReadWord.scss';
-import { useDeleteWordMutation, useGetWordsQuery } from 'app/api/wordService';
+import { useDeleteLessonMutation, useGetLessonsQuery, useGetLessonQuery } from 'app/api/lessonService';
+import './ReadLesson.scss';
 import { useNavigate } from 'react-router-dom';
 import { setTab } from 'Features/Admin/tabSlice';
 import { useDispatch } from 'react-redux';
-
-const ReadWord = () => {
-    const [deleteWord] = useDeleteWordMutation();
+const ReadLesson = () => {
+    const [deleteLesson] = useDeleteLessonMutation();
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const confirm = (id) => {
-        deleteWord({ id, headers: { accessToken: JSON.parse(localStorage.getItem('user')).token } }).then(
+        deleteLesson({ id, headers: { accessToken: JSON.parse(localStorage.getItem('user')).token } }).then(
             (response) => {
                 if (response.data.error !== undefined) {
                     message.error(response.data.error.message);
@@ -30,33 +28,33 @@ const ReadWord = () => {
             key: 'index',
         },
         {
-            title: 'Word',
-            dataIndex: 'word',
-            key: 'word',
+            title: `Lesson's name`,
+            dataIndex: 'name',
+            key: 'name',
         },
         {
-            title: 'Furigana',
-            dataIndex: 'furigana',
-            key: 'furigana',
+            title: 'Number of words',
+            dataIndex: 'word',
+            key: 'word',
         },
         {
             title: 'Actions',
             dataIndex: '',
             key: 'x',
             render: (_, record) => (
-                <div>
+                <div className="table-actions">
                     <Button
                         type="primary"
                         onClick={() => {
-                            dispatch(setTab('3'));
-                            navigate(`/admin/updateWord/${record.id}`);
+                            dispatch(setTab('8'));
+                            navigate(`/admin/updateLesson/${record.id}`);
                         }}
                     >
                         Update
                     </Button>
                     <Popconfirm
-                        title="Delete the word"
-                        description="Are you sure to delete this word?"
+                        title="Delete the lesson"
+                        description="Are you sure to delete this lesson?"
                         onConfirm={() => confirm(record.id)}
                         onCancel={cancel}
                         okText="Yes"
@@ -71,19 +69,21 @@ const ReadWord = () => {
         },
     ];
 
-    const { data: words, isError, isLoading } = useGetWordsQuery();
+    const { data: lessons, isError, isLoading } = useGetLessonsQuery();
     if (isError) {
         return <h1>Something went wrong!</h1>;
     } else if (isLoading) {
         return <h1>Loading ... </h1>;
     }
-    const tableData = words.map((current, index) => {
-        return { ...current, key: current.id, index: index + 1 };
+    const tableData = lessons.map((current, index) => {
+        return { ...current, key: current.id, index: index + 1, word: current.Words?.length || 0 };
     });
+
     return (
-        <div className="read-word">
-            <Table pagination={{ pageSize: 10 }} columns={columns} dataSource={tableData} size="large" />
+        <div className="read-lesson">
+            <Table pagination={{ pageSize: 10 }} columns={columns} size="large" dataSource={tableData}></Table>
         </div>
     );
 };
-export default ReadWord;
+
+export default ReadLesson;

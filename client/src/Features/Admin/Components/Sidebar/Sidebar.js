@@ -22,12 +22,7 @@ const items = [
         getItem('Get Word', '3'),
     ]),
     getItem('Manage Requests', 'sub2', null, [getItem('Update requests', '4')]),
-    getItem('Navigation Three', 'sub4', <SettingOutlined />, [
-        getItem('Option 9', '9'),
-        getItem('Option 10', '10'),
-        getItem('Option 11', '11'),
-        getItem('Option 12', '12'),
-    ]),
+    getItem('Manage Lessons', 'sub4', null, [getItem('Create lesson', '6'), getItem('Read lesson', '7')]),
     getItem('User', 'sub5', null, [getItem('Update User', '13'), getItem('Delete User', '14')]),
 ];
 

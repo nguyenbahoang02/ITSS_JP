@@ -1,0 +1,50 @@
+.update-lesson {
+    height: 100%;
+    .admin-selected-feature {
+        display: flex;
+        margin: 0 0 !important;
+        padding-top: 10%;
+        height: 100%;
+        width: 100%;
+        .lesson-name-div {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            .lesson-name {
+                height: fit-content;
+                width: 70%;
+                border: 2px solid #000;
+                padding-top: 0.5rem;
+                padding-bottom: 1rem;
+                padding-left: 1rem;
+            }
+        }
+        .lesson-words-div {
+            flex: 3;
+            display: flex;
+            padding: 2rem;
+            flex-direction: column;
+            gap: 1.5rem;
+            .ant-table-cell:nth-child(1) {
+                height: auto;
+                width: 2rem;
+                text-align: center;
+            }
+            .anticon {
+                cursor: pointer;
+                &:hover,
+                &:active,
+                &:focus {
+                    color: var(--primary) !important;
+                }
+            }
+            svg {
+                width: 2.5rem !important;
+                height: 2.5rem !important;
+            }
+            button{
+                width: fit-content;
+            }
+        }
+    }
+}
