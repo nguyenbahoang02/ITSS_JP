@@ -1,0 +1,68 @@
+.search-history-by-id {
+    .home-admin {
+      display: flex;
+      height: 100vh;
+  
+      .admin-selected-features {
+        flex: 1;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+  
+        .title {
+          text-align: center;
+          margin-bottom: 20px;
+        }
+  
+        .user {
+          text-align: center;
+          margin-bottom: 20px;
+  
+          h1 {
+            font-size: 1.5rem;
+          }
+        }
+  
+        .search-history-by-id-table {
+          flex: 1;
+          overflow: auto;
+  
+          .ant-table-wrapper {
+            border: 1px solid var(--primary);
+            min-width: 60vw;
+  
+            .ant-spin-container {
+              min-height: 70vh;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+  
+              .ant-table {
+                margin-top: 20px;
+  
+                th,
+                td {
+                  text-align: center;
+                }
+  
+                .ant-table-cell {
+                  div {
+                    display: flex;
+                    gap: 0.75rem;
+                    justify-content: center;
+                  }
+                }
+  
+                .ant-table-cell:first-child {
+                  height: auto;
+                  width: 2rem;
+                  text-align: center;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  

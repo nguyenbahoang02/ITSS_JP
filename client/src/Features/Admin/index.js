@@ -4,8 +4,11 @@ import './index.scss';
 import CreateWord from './Components/CreateWord/CreateWord';
 import ReadWord from './Components/ReadWord/ReadWord';
 import GetWord from './Components/GetWord/GetWord';
-import UpdateUser from './Components/User/UpdateUser/UpdateUser';
+import UpdateUser from './Components/UpdateUser/UpdateUser';
+import DeleteUser from './Components/DeleteUser/DeleteUser';
+import ReadUser from './Components/ReadUser/ReadUser';
 import UpdateRequest from 'Features/Requests/Components/UpdateRequest/UpdateRequest';
+import GetSearchHistory from './Components/SearchHistory/GetSearchHistory/GetSearchHistory';
 
 function HomeAdmin() {
     const { tab } = useSelector((state) => state.tab);
@@ -18,7 +21,14 @@ function HomeAdmin() {
                 {tab === '3' && <GetWord />}
                 {tab === '4' && <UpdateRequest />}
             </div>
-            {/* <div className="admin-selected-feature">{tab === '13' && <UpdateUser />}</div> */}
+            <div className="admin-selected-feature">
+                {tab === '13' && <ReadUser />}
+                {tab === '14' && <UpdateUser />}
+                {tab === '15' && <DeleteUser />}
+            </div>
+            <div className="admin-selected-feature">
+                {tab === '16' && <GetSearchHistory />}
+            </div>
         </div>
     );
 }

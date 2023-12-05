@@ -1,4 +1,9 @@
-.get-word {
+.get-search-history {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: normal;
+
     .ant-table-wrapper {
         border: 1px solid var(--primary);
         min-width: 60vw;
@@ -24,14 +29,8 @@
         text-align: center;
     }
 
-    .search-bar {
-        display: flex;
-        align-items: center;
-    }
-
-    .title{
+    .title {
         text-align: center;
     }
 
-    
 }

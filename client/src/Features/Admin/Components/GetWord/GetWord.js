@@ -1,9 +1,19 @@
-import './GetWord.scss';
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { Table, Button, Input } from 'antd';
+import { useNavigate } from 'react-router-dom';
+import { setTab } from 'Features/Admin/tabSlice';
+import { useDispatch } from 'react-redux';
 import { useGetWordsQuery } from 'app/api/wordService';
+import { useCreateSearchRecordMutation } from 'app/api/searchHistoryService';
+import './GetWord.scss';
 
 const GetWord = () => {
-    const [search, setSearch] = useState('');
+    const [createHistoryRecord] = useCreateSearchRecordMutation();
+
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const [searchTerm, setSearchTerm] = useState('');
+
     const { data: words, isError, isLoading } = useGetWordsQuery();
     if (isError) {
         return <h1>Something went wrong!</h1>;
@@ -11,28 +21,88 @@ const GetWord = () => {
         return <h1>Loading ... </h1>;
     }
 
-    const Search = () => {
-        const regex = new RegExp(search, "i");
-        const matchingWords = words.filter(word => regex.test(word));
-        // console.log(matchingWords);
+    const filteredWords = words.filter((current) => {
         return (
-            <div>
-                {matchingWords.map((word, index) => (
-                    <div key={index} className="result">
-                        <div>{word.word}</div>
-                        <div>{word.furigana}</div>
-                        <div>{word.meaning}</div>
-                        <div>{word.description}</div>
-                    </div>
-                ))}
-            </div>
-        )
+            current.word.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            current.furigana.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+    });
+
+    const handleSearchChange = (e) => {
+        setSearchTerm(e.target.value);
     };
+
+    const handleViewWord = (record) => {
+        createHistoryRecord({
+            data: {
+                WordId: record.id,
+            },
+            headers: {
+                accessToken: JSON.parse(localStorage.getItem('user')).token,
+            },
+        }).then(function(response) {
+            console.log(response);
+        }
+        ).catch(function(error) {
+            console.log(error);
+        });
+        dispatch(setTab('4'));
+        navigate(`/admin/updateWord/${record.id}`);
+
+    };
+
+    const columns = [
+        {
+            title: 'Order',
+            dataIndex: 'id',
+        },
+        {
+            title: 'Word',
+            dataIndex: 'word',
+        },
+        {
+            title: 'Furigana',
+            dataIndex: 'furigana',
+        },
+        {
+            title: 'Action',
+            dataIndex: '',
+            key: 'x',
+            render: (_, record) => (
+                <div>
+                    <Button
+                        type="primary"
+                        onClick={() => {
+                            handleViewWord(record);
+
+                        }}
+                    >
+                        Get Word
+                    </Button>
+                </div>
+            ),
+        },
+    ];
+
     return (
-        <div className="getword">
-            <input type="text" placeholder="Search for a word" onChange={(e) => setSearch(e.target.value)} />
-            <button onClick={() => Search()}>Search</button>
+        <div className="get-word">
+            <div className="title">
+                <h1>GET WORD</h1>
+            </div>
+            <div className="search-bar">
+                <Input
+                    type="text"
+                    placeholder="Search by Word or Furigana"
+                    value={searchTerm}
+                    onChange={handleSearchChange}
+                />
+                <Button type="primary">Search</Button>
+            </div>
+            <div className="table">
+                <Table pagination={{ pageSize: 5 }} columns={columns} dataSource={filteredWords} size="large" />
+            </div>
         </div>
-    )
-}
+    );
+};
+
 export default GetWord;

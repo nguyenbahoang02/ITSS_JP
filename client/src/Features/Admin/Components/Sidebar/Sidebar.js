@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+// eslint-disable-next-line no-unused-vars
 import { AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
 import { Menu } from 'antd';
 import './Sidebar.scss';
@@ -28,7 +29,13 @@ const items = [
         getItem('Option 11', '11'),
         getItem('Option 12', '12'),
     ]),
-    getItem('User', 'sub5', null, [getItem('Update User', '13'), getItem('Delete User', '14')]),
+    getItem('User', 'sub5', null, 
+    [getItem('Read User To Update', '13'), 
+    getItem('Delete User', '15')]),
+    
+    getItem('Search History', 'sub6', null,[
+        getItem('Get Search History', '16'),
+    ]),
 ];
 
 // submenu keys of first level
