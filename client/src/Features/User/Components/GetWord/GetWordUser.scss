@@ -1,0 +1,76 @@
+// GetWordUser.scss
+
+.update-word {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    .admin-selected-feature {
+        max-width: 600px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+
+        .word-section {
+            margin-bottom: 5px;
+
+            .section-title {
+                font-size: 24px;
+                font-weight: bold;
+                margin-bottom: 5px;
+            }
+
+            .word {
+                font-size: 24px;
+                margin-bottom: 5px;
+            }
+
+            .furigana {
+                font-size: 24px;
+                margin-bottom: 5px;
+            }
+        }
+
+        .meanings-section {
+            .section-title {
+                font-size: 24px;
+                font-weight: bold;
+                margin-bottom: 5px;
+            }
+
+            .meaning-div {
+                margin-bottom: 5px;
+                font-size: 24px;
+
+                .meaning {
+                    margin-bottom: 5px;
+                    text-align: center;
+                }
+
+                .meaning-description {
+                    margin-bottom: 5px;
+                    text-align: center;
+                    font-size: 24px;
+                }
+
+                .examples-section {
+                    margin-left: 16px;
+
+                    .example-div {
+                        margin-bottom: 5px;
+
+                        .example {
+                            font-style: italic;
+                            margin-bottom: 5px;
+                        }
+
+                        .example-meaning {
+                            margin-bottom: 5px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

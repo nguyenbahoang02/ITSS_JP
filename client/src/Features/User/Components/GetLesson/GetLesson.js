@@ -1,3 +1,5 @@
+// GetLesson.jsx
+
 import React from "react";
 import { useGetLessonsQuery } from "app/api/lessonService";
 import { Button, Table } from "antd";
@@ -34,14 +36,14 @@ const GetLesson = () => {
                     <Button
                         type="primary"
                         onClick={() => {
-                            dispatch(setTab('17'));
-                            navigate(`/admin/lesson/${record.id}`);
+                            dispatch(setTab('4'));
+                            navigate(`/user/lesson/${record.id}`);
                         }}
                     >
-                        LearnLesson
+                        Learn Lesson
                     </Button>
                 </div>
-            ), 
+            ),
         },
     ];
 
@@ -59,7 +61,7 @@ const GetLesson = () => {
             <div className="title">
                 <h1>GET LESSON</h1>
             </div>
-            <Table columns={columns} dataSource={tableData} />
+            <Table columns={columns} dataSource={tableData} pagination={{ pageSize: 5 }} />
         </div>
     );
 };
