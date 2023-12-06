@@ -6,6 +6,8 @@ import RequireAuth from 'Features/Auth/Components/RequireAuth';
 import CreateRequest from 'Features/Requests/pages/CreateRequest/CreateRequest';
 import UpdateUser from 'Features/Admin/Components/UpdateUser/UpdateUser';
 import SearchHistoryById from 'Features/Admin/Components/SearchHistory/SearchHistoryById/SearchHistoryById';
+import LearnLesson from 'Features/Admin/Components/Lesson/LearnLesson/LearnLesson';
+
 function App() {
     return (
         <BrowserRouter>
@@ -17,6 +19,7 @@ function App() {
                         <Route path="updateWord/:id" element={<UpdateWord />} />
                         <Route path="updateUser/:id" element={<UpdateUser />} />
                         <Route path="searchHistory/:id" element={<SearchHistoryById />} />
+                        <Route path="lesson/:id" element={<LearnLesson />} />
                     </Route>
                     <Route path="createRequest" element={<CreateRequest />} />
                 </Route>

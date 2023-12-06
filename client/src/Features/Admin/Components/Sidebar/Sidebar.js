@@ -36,6 +36,10 @@ const items = [
     getItem('Search History', 'sub6', null,[
         getItem('Get Search History', '16'),
     ]),
+
+    getItem('Lesson', 'sub7', null,[
+        getItem('Get Lesson', '17'),
+    ]),
 ];
 
 // submenu keys of first level

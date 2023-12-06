@@ -9,6 +9,7 @@ import DeleteUser from './Components/DeleteUser/DeleteUser';
 import ReadUser from './Components/ReadUser/ReadUser';
 import UpdateRequest from 'Features/Requests/Components/UpdateRequest/UpdateRequest';
 import GetSearchHistory from './Components/SearchHistory/GetSearchHistory/GetSearchHistory';
+import GetLesson from './Components/Lesson/GetLesson/GetLesson';
 
 function HomeAdmin() {
     const { tab } = useSelector((state) => state.tab);
@@ -28,6 +29,9 @@ function HomeAdmin() {
             </div>
             <div className="admin-selected-feature">
                 {tab === '16' && <GetSearchHistory />}
+            </div>
+            <div className="admin-selected-feature">
+                {tab === '17' && <GetLesson />}
             </div>
         </div>
     );
