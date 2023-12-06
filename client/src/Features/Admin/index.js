@@ -3,13 +3,15 @@ import Sidebar from './Components/Sidebar/Sidebar';
 import './index.scss';
 import CreateWord from './Components/CreateWord/CreateWord';
 import ReadWord from './Components/ReadWord/ReadWord';
-import GetWord from './Components/GetWord/GetWord';
+import GetWord from '../User/Components/GetWord/GetWord';
 import UpdateUser from './Components/UpdateUser/UpdateUser';
 import DeleteUser from './Components/DeleteUser/DeleteUser';
 import ReadUser from './Components/ReadUser/ReadUser';
 import UpdateRequest from 'Features/Requests/Components/UpdateRequest/UpdateRequest';
 import GetSearchHistory from './Components/SearchHistory/GetSearchHistory/GetSearchHistory';
-import GetLesson from './Components/Lesson/GetLesson/GetLesson';
+import GetLesson from '../User/Components/GetLesson/GetLesson';
+import ReadLesson from './Components/Lesson/ReadLesson/ReadLesson';
+import CreateLesson from './Components/CreateLesson/CreateLesson';
 
 function HomeAdmin() {
     const { tab } = useSelector((state) => state.tab);
@@ -21,16 +23,12 @@ function HomeAdmin() {
                 {tab === '2' && <ReadWord />}
                 {tab === '3' && <GetWord />}
                 {tab === '4' && <UpdateRequest />}
-            </div>
-            <div className="admin-selected-feature">
+                {tab === '6' && <CreateLesson />}
+                {tab === '7' && <ReadLesson />}
                 {tab === '13' && <ReadUser />}
                 {tab === '14' && <UpdateUser />}
                 {tab === '15' && <DeleteUser />}
-            </div>
-            <div className="admin-selected-feature">
                 {tab === '16' && <GetSearchHistory />}
-            </div>
-            <div className="admin-selected-feature">
                 {tab === '17' && <GetLesson />}
             </div>
         </div>

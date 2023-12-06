@@ -20,26 +20,21 @@ const items = [
     getItem('Manage Words', 'sub1', null, [
         getItem('Create word', '1'),
         getItem('Read word', '2'),
-        getItem('Get Word', '3'),
     ]),
     getItem('Manage Requests', 'sub2', null, [getItem('Update requests', '4')]),
-    getItem('Navigation Three', 'sub4', <SettingOutlined />, [
-        getItem('Option 9', '9'),
-        getItem('Option 10', '10'),
-        getItem('Option 11', '11'),
-        getItem('Option 12', '12'),
-    ]),
-    getItem('User', 'sub5', null, 
-    [getItem('Read User To Update', '13'), 
-    getItem('Delete User', '15')]),
-    
-    getItem('Search History', 'sub6', null,[
+
+    getItem('User', 'sub5', null,
+        [getItem('Read User To Update', '13'),
+        getItem('Delete User', '15'),]),
+
+    getItem('Search History', 'sub6', null, [
         getItem('Get Search History', '16'),
     ]),
 
-    getItem('Lesson', 'sub7', null,[
+    getItem('Manage Lessons', 'sub4', null,
+        [getItem('Create lesson', '6'),
         getItem('Get Lesson', '17'),
-    ]),
+        getItem('Read lesson', '7')]),
 ];
 
 // submenu keys of first level

@@ -1,45 +1,67 @@
 import { apiService } from '../store/apiService';
-
-export const lessonService = apiService.injectEndpoints({
+export const LessonService = apiService.injectEndpoints({
     endpoints: (builder) => ({
-        getLesson: builder.query({
-            query: (lessonId) => ({
-                url: `lessons/${lessonId}`,
-            }),
-        }),
         getLessons: builder.query({
-            query: () => ({
-                url: `lessons`,
-            }),
+            query: () => `lessons`,
+            providesTags: ['lesson'],
         }),
-        createLesson: builder.mutation({
-            query: (lesson) => ({
-                url: `lessons`,
-                method: 'POST',
-                body: lesson,
-            }),
+
+        getLesson: builder.query({
+            query: (id) => `lessons/${id}`,
+            providesTags: ['lesson'],
         }),
-        updateLesson: builder.mutation({
-            query: ({ id, ...patch }) => ({
-                url: `lessons/${id}`,
-                method: 'PATCH',
-                body: patch,
-            }),
-        }),
+
         deleteLesson: builder.mutation({
-            query: (id) => ({
+            query: ({ id, headers }) => ({
                 url: `lessons/${id}`,
                 method: 'DELETE',
+                headers: headers,
             }),
+            invalidatesTags: ['lesson'],
+        }),
+        deleteWordFromLesson: builder.mutation({
+            query: ({ id, headers, wordId }) => ({
+                url: `lessons/${id}/${wordId}`,
+                method: 'DELETE',
+                headers: headers,
+            }),
+            invalidatesTags: ['lesson'],
+        }),
+        updateLesson: builder.mutation({
+            query: ({ data, id, headers }) => ({
+                url: `lessons/${id}`,
+                method: 'PUT',
+                body: data,
+                headers: headers,
+            }),
+            invalidatesTags: ['lesson'],
+        }),
+        addWordToLesson: builder.mutation({
+            query: ({ lessonId, wordId, headers }) => ({
+                url: `lessons/${lessonId}/${wordId}`,
+                method: 'POST',
+                headers: headers,
+            }),
+            invalidatesTags: ['lesson'],
+        }),
+        createLesson: builder.mutation({
+            query: ({ data, headers }) => ({
+                url: `lessons`,
+                method: 'POST',
+                headers: headers,
+                body: data,
+            }),
+            invalidatesTags: ['lesson'],
         }),
     }),
-    overrideExisting: false,
 });
 
 export const {
-    useGetLessonQuery,
     useGetLessonsQuery,
-    useCreateLessonMutation,
-    useUpdateLessonMutation,
+    useGetLessonQuery,
     useDeleteLessonMutation,
-} = lessonService;
+    useUpdateLessonMutation,
+    useAddWordToLessonMutation,
+    useCreateLessonMutation,
+    useDeleteWordFromLessonMutation,
+} = LessonService;
