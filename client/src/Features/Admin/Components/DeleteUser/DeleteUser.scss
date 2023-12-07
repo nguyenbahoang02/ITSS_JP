@@ -1,0 +1,30 @@
+.delete-user {
+    .ant-table-wrapper {
+        border: 1px solid var(--primary);
+        min-width: 60vw;
+
+        .ant-spin-container {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    }
+
+    .ant-table-cell {
+        div {
+            display: flex;
+            gap: 0.75rem;
+        }
+    }
+
+    .ant-table-cell:first-child {
+        height: auto;
+        width: 2rem;
+        text-align: center;
+    }
+
+    .title {
+        text-align: center;
+    }
+}

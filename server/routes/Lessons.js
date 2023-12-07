@@ -23,6 +23,17 @@ router.get('/', async (req, res) => {
     }
 });
 
+// Get all lessons
+router.get("/", async (req, res) => {
+  try {
+    const List = await Lessons.findAll();
+    return res.json(List);
+  } catch (error) {
+    res.json(error);
+  }
+});
+
+
 // Get all words of Lesson
 
 router.get('/:id', async (req, res) => {

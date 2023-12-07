@@ -57,7 +57,7 @@ router.post("/login", async (req, res) => {
       { expiresIn: "4h" }
     );
 
-    return res.json({ name: User.name, email: User.email,roleId:User.RoleId, token: accessToken });
+    return res.json({ name: User.name, email: User.email, roleId: User.RoleId, token: accessToken });
   });
 });
 
@@ -123,14 +123,11 @@ router.get("/search-history/:id", validateToken, async (req, res) => {
 });
 
 // Create search history
-router.post("/search-history/:id", validateToken, async (req, res) => {
-  const id = parseInt(req.params.id);
+router.post("/search-history", validateToken, async (req, res) => {
+  const userId = req.user.id;
   const { WordId } = req.body;
-  if (req.user.RoleId !== 2 || req.user.id !== id) {
-    return res.json("You are not authorization!");
-  }
   try {
-    const record = await SearchHistory.create({ UserId: id, WordId });
+    const record = await SearchHistory.create({ UserId: userId, WordId });
     return res.json(record);
   } catch (error) {
     return res.json(error);

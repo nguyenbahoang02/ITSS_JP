@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+// eslint-disable-next-line no-unused-vars
 import { AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
 import { Menu } from 'antd';
 import './Sidebar.scss';
@@ -19,11 +20,21 @@ const items = [
     getItem('Manage Words', 'sub1', null, [
         getItem('Create word', '1'),
         getItem('Read word', '2'),
-        getItem('Get Word', '3'),
     ]),
     getItem('Manage Requests', 'sub2', null, [getItem('Update requests', '4')]),
-    getItem('Manage Lessons', 'sub4', null, [getItem('Create lesson', '6'), getItem('Read lesson', '7')]),
-    getItem('User', 'sub5', null, [getItem('Update User', '13'), getItem('Delete User', '14')]),
+
+    getItem('User', 'sub5', null,
+        [getItem('Read User To Update', '13'),
+        getItem('Delete User', '15'),]),
+
+    getItem('Search History', 'sub6', null, [
+        getItem('Get Search History', '16'),
+    ]),
+
+    getItem('Manage Lessons', 'sub4', null,
+        [getItem('Create lesson', '6'),
+        getItem('Get Lesson', '17'),
+        getItem('Read lesson', '7')]),
 ];
 
 // submenu keys of first level

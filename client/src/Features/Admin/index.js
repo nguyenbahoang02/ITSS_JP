@@ -3,10 +3,14 @@ import Sidebar from './Components/Sidebar/Sidebar';
 import './index.scss';
 import CreateWord from './Components/CreateWord/CreateWord';
 import ReadWord from './Components/ReadWord/ReadWord';
-import GetWord from './Components/GetWord/GetWord';
-import UpdateUser from './Components/User/UpdateUser/UpdateUser';
+import GetWord from '../User/Components/GetWord/GetWord';
+import UpdateUser from './Components/UpdateUser/UpdateUser';
+import DeleteUser from './Components/DeleteUser/DeleteUser';
+import ReadUser from './Components/ReadUser/ReadUser';
 import UpdateRequest from 'Features/Requests/Components/UpdateRequest/UpdateRequest';
-import ReadLesson from './Components/ReadLesson/ReadLesson';
+import GetSearchHistory from './Components/SearchHistory/GetSearchHistory/GetSearchHistory';
+import GetLesson from '../User/Components/GetLesson/GetLesson';
+import ReadLesson from './Components/Lesson/ReadLesson/ReadLesson';
 import CreateLesson from './Components/CreateLesson/CreateLesson';
 
 function HomeAdmin() {
@@ -21,8 +25,12 @@ function HomeAdmin() {
                 {tab === '4' && <UpdateRequest />}
                 {tab === '6' && <CreateLesson />}
                 {tab === '7' && <ReadLesson />}
+                {tab === '13' && <ReadUser />}
+                {tab === '14' && <UpdateUser />}
+                {tab === '15' && <DeleteUser />}
+                {tab === '16' && <GetSearchHistory />}
+                {tab === '17' && <GetLesson />}
             </div>
-            {/* <div className="admin-selected-feature">{tab === '13' && <UpdateUser />}</div> */}
         </div>
     );
 }

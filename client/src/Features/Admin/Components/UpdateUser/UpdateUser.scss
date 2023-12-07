@@ -1,0 +1,33 @@
+// UpdateUser.scss
+
+.update-user {
+    display: flex;
+    height: 100vh; // Use the full viewport height
+
+    .home-admin {
+        display: flex;
+        align-items: center; // Center vertically
+
+        .admin-selected-features {
+            flex: 1; // Allow the content to take the remaining space
+            text-align: center; // Center the text content
+
+            .update-user-form {
+                margin: 0 auto; // Center the form horizontally
+                max-width: 400px; // Adjust maximum width as needed
+
+                form {
+
+                    // Add styling for the form
+                    .ant-form-item {
+                        margin-bottom: 16px; // Adjust margin between form items
+                    }
+
+                    .ant-btn {
+                        margin-right: 8px; // Adjust margin between buttons
+                    }
+                }
+            }
+        }
+    }
+}
