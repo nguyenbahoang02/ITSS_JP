@@ -40,15 +40,15 @@ const GetWord = () => {
             headers: {
                 accessToken: JSON.parse(localStorage.getItem('user')).token,
             },
-        }).then(function(response) {
-            console.log(response);
-        }
-        ).catch(function(error) {
-            console.log(error);
-        });
+        })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
         dispatch(setTab('4'));
         navigate(`/user/word/${record.id}`);
-
     };
 
     const columns = [
@@ -74,7 +74,6 @@ const GetWord = () => {
                         type="primary"
                         onClick={() => {
                             handleViewWord(record);
-
                         }}
                     >
                         Get Word
@@ -86,9 +85,6 @@ const GetWord = () => {
 
     return (
         <div className="get-word">
-            <div className="title">
-                <h1>GET WORD</h1>
-            </div>
             <div className="search-bar">
                 <Input
                     type="text"
@@ -97,9 +93,11 @@ const GetWord = () => {
                     onChange={handleSearchChange}
                 />
             </div>
-            <div className="table">
-                <Table pagination={{ pageSize: 5 }} columns={columns} dataSource={filteredWords} size="large" />
-            </div>
+            {searchTerm.trim() !== '' && (
+                <div className="table">
+                    <Table pagination={{ pageSize: 5 }} columns={columns} dataSource={filteredWords} size="large" />
+                </div>
+            )}
         </div>
     );
 };

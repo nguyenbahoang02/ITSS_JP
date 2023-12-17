@@ -1,0 +1,23 @@
+.nav-bar {
+    padding: 2rem;
+    background: var(--primary);
+    display: flex;
+    color: #fff;
+    font-size: 2rem;
+    min-height: 4rem;
+    align-items: center;
+    justify-content: space-around;
+    a {
+        color: #fff;
+    }
+    .sub-nav {
+        display: flex;
+        gap: 2rem;
+        div {
+            cursor: pointer;
+        }
+    }
+    .web-name {
+        font-size: 3rem;
+    }
+}
