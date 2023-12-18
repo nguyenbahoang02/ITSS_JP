@@ -5,7 +5,7 @@ import './LearnLessonUser.scss';
 import 'Features/Admin/index.scss';
 import NavBar from '../NavBar/NavBar';
 const LearnLessonUser = () => {
-    const navivate = useNavigate();
+    const navigate = useNavigate();
     const params = useParams();
     const { data, isError, isLoading } = useGetLessonQuery(params.id);
 
@@ -39,26 +39,13 @@ const LearnLessonUser = () => {
         <div>
             <NavBar />
             <div className="learn-lesson">
-                {/* <div className="learn-lesson">
-                    <div className="home-user">
-                        <div className="admin-selected-features">
-                            <div className="title">
-                                <h1>LEARNING</h1>
-                            </div>
-                            <div className="lesson-title">
-                                <h1>{userData[0].name}</h1>
-                            </div>
-                            <div className="learn-lesson-table">
-                                <Table columns={columns} dataSource={tableData} pagination={{ pageSize: 5 }} />
-                            </div>
-                        </div>
-                    </div>
-                </div> */}
                 <div className="lesson-name-div">
                     <div className="lesson-name">{data[0].name}</div>
                     <div className="btn">
-                        <Button onClick={() => navivate('/')}>クイズ</Button>
-                        <Button onClick={() => navivate('/')}>フラッシュカード</Button>
+                        <Button onClick={() => navigate('/')}>クイズ</Button>
+                        <Button onClick={() => navigate(`/user/lesson/${params.id}/flashcard`)}>
+                            フラッシュカード
+                        </Button>
                     </div>
                 </div>
                 <div className="lesson-words-div">
