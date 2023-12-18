@@ -1,5 +1,5 @@
 import { Table, Button, message, Popconfirm } from 'antd';
-import { useDeleteLessonMutation, useGetLessonsQuery, useGetLessonQuery } from 'app/api/lessonService';
+import { useDeleteLessonMutation, useGetLessonsQuery } from 'app/api/lessonService';
 import './ReadLesson.scss';
 import { useNavigate } from 'react-router-dom';
 import { setTab } from 'Features/Admin/tabSlice';

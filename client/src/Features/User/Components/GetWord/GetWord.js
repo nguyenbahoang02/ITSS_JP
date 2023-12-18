@@ -47,7 +47,7 @@ const GetWord = () => {
             console.log(error);
         });
         dispatch(setTab('4'));
-        navigate(`/admin/updateWord/${record.id}`);
+        navigate(`/user/word/${record.id}`);
 
     };
 
@@ -96,7 +96,6 @@ const GetWord = () => {
                     value={searchTerm}
                     onChange={handleSearchChange}
                 />
-                <Button type="primary">Search</Button>
             </div>
             <div className="table">
                 <Table pagination={{ pageSize: 5 }} columns={columns} dataSource={filteredWords} size="large" />

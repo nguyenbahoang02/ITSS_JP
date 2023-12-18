@@ -1,0 +1,48 @@
+// GetLesson.scss
+
+.get-lesson {
+    max-width: 800px;
+    margin: 10px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+  
+    .title {
+      text-align: center;
+      margin-bottom: 20px;
+  
+      h1 {
+        font-size: 28px;
+        font-weight: bold;
+      }
+    }
+  
+    .ant-table {
+        border: 1px solid #ccc;
+        text-align: center;
+
+      .ant-table-header {
+        background-color: #f0f0f0;
+      }
+  
+      .ant-table-tbody {
+        tr {
+          &:hover {
+            background-color: #f5f5f5;
+          }
+  
+          td {
+            text-align: center;
+          }
+        }
+      }
+  
+      .ant-pagination {
+        margin-top: 10px;
+      }
+
+      .ant-table-cell {
+        text-align: center;
+      }
+    }
+  }
+  
