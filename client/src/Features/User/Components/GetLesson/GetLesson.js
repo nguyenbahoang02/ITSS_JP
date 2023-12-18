@@ -1,12 +1,11 @@
-// GetLesson.jsx
-
-import React from "react";
-import { useGetLessonsQuery } from "app/api/lessonService";
-import { Button, Table } from "antd";
-import { useDispatch } from "react-redux";
-import { setTab } from "Features/Admin/tabSlice";
-import { useNavigate } from "react-router-dom";
-import "./GetLesson.scss";
+import React from 'react';
+import { useGetLessonsQuery } from 'app/api/lessonService';
+import { Button, Table } from 'antd';
+import { useDispatch } from 'react-redux';
+import { setTab } from 'Features/Admin/tabSlice';
+import { useNavigate } from 'react-router-dom';
+import './GetLesson.scss';
+import NavBar from './../NavBar/NavBar';
 
 const GetLesson = () => {
     const navigate = useNavigate();
@@ -57,11 +56,14 @@ const GetLesson = () => {
     });
 
     return (
-        <div className="get-lesson">
-            <div className="title">
-                <h1>GET LESSON</h1>
+        <div>
+            <NavBar />
+            <div className="get-lesson">
+                <div className="title">
+                    <h1>GET LESSON</h1>
+                </div>
+                <Table columns={columns} dataSource={tableData} pagination={{ pageSize: 5 }} />
             </div>
-            <Table columns={columns} dataSource={tableData} pagination={{ pageSize: 5 }} />
         </div>
     );
 };
