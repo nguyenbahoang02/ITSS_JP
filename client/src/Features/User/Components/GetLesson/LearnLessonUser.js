@@ -31,6 +31,7 @@ const LearnLessonUser = () => {
             key: 'furigana',
         },
     ];
+    console.log(data);
     const tableData = data[0]?.Words?.map((current, index) => {
         return { ...current, key: current.id, index: index + 1 };
     });
@@ -39,25 +40,10 @@ const LearnLessonUser = () => {
         <div>
             <NavBar />
             <div className="learn-lesson">
-                {/* <div className="learn-lesson">
-                    <div className="home-user">
-                        <div className="admin-selected-features">
-                            <div className="title">
-                                <h1>LEARNING</h1>
-                            </div>
-                            <div className="lesson-title">
-                                <h1>{userData[0].name}</h1>
-                            </div>
-                            <div className="learn-lesson-table">
-                                <Table columns={columns} dataSource={tableData} pagination={{ pageSize: 5 }} />
-                            </div>
-                        </div>
-                    </div>
-                </div> */}
                 <div className="lesson-name-div">
                     <div className="lesson-name">{data[0].name}</div>
                     <div className="btn">
-                        <Button onClick={() => navivate('/')}>クイズ</Button>
+                        <Button onClick={() => navivate(`/user/quiz/${params.id}`)}>クイズ</Button>
                         <Button onClick={() => navivate('/')}>フラッシュカード</Button>
                     </div>
                 </div>

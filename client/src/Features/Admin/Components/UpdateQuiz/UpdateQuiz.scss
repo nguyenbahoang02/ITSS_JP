@@ -1,0 +1,14 @@
+.update-quiz {
+    display: flex;
+    width: 100%;
+    .sidebar {
+        min-width: 18%;
+    }
+    .content {
+        margin: auto;
+
+        .mb-16 {
+            margin-bottom: 16px;
+        }
+    }
+}

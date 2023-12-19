@@ -12,6 +12,8 @@ import GetSearchHistory from './Components/SearchHistory/GetSearchHistory/GetSea
 import GetLesson from '../User/Components/GetLesson/GetLesson';
 import ReadLesson from './Components/Lesson/ReadLesson/ReadLesson';
 import CreateLesson from './Components/CreateLesson/CreateLesson';
+import CreateQuiz from './Components/CreateQuiz/CreateQuiz';
+import ReadQuiz from './Components/ReadQuiz/ReadQuiz';
 
 function HomeAdmin() {
     const { tab } = useSelector((state) => state.tab);
@@ -30,6 +32,8 @@ function HomeAdmin() {
                 {tab === '15' && <DeleteUser />}
                 {tab === '16' && <GetSearchHistory />}
                 {tab === '17' && <GetLesson />}
+                {tab === '18' && <CreateQuiz />}
+                {tab === '19' && <ReadQuiz />}
             </div>
         </div>
     );

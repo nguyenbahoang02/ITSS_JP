@@ -17,24 +17,19 @@ function getItem(label, key, icon, children, disabled) {
     };
 }
 const items = [
-    getItem('Manage Words', 'sub1', null, [
-        getItem('Create word', '1'),
-        getItem('Read word', '2'),
-    ]),
+    getItem('Manage Words', 'sub1', null, [getItem('Create word', '1'), getItem('Read word', '2')]),
     getItem('Manage Requests', 'sub2', null, [getItem('Update requests', '4')]),
 
-    getItem('User', 'sub5', null,
-        [getItem('Read User To Update', '13'),
-        getItem('Delete User', '15'),]),
+    getItem('User', 'sub5', null, [getItem('Read User To Update', '13'), getItem('Delete User', '15')]),
 
-    getItem('Search History', 'sub6', null, [
-        getItem('Get Search History', '16'),
-    ]),
+    getItem('Search History', 'sub6', null, [getItem('Get Search History', '16')]),
 
-    getItem('Manage Lessons', 'sub4', null,
-        [getItem('Create lesson', '6'),
+    getItem('Manage Lessons', 'sub4', null, [
+        getItem('Create lesson', '6'),
         getItem('Get Lesson', '17'),
-        getItem('Read lesson', '7')]),
+        getItem('Read lesson', '7'),
+    ]),
+    getItem('Manage Quizzes', 'sub7', null, [getItem('Create quiz', '18'), getItem('Read quiz', '19')]),
 ];
 
 // submenu keys of first level

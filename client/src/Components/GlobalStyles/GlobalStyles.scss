@@ -88,7 +88,9 @@ input {
 }
 
 .ant-btn-dangerous {
-    &:hover {
+    &:hover,
+    &:active,
+    &:focus {
         opacity: 0.8;
         background-color: #ff4d4f !important;
     }
