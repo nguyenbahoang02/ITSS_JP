@@ -12,6 +12,8 @@ import HomeUser from 'Features/User';
 import GetLessonPage from 'Features/User/Pages/GetLesson/GetLesson';
 import GetWordUser from 'Features/User/Components/GetWord/GetWordUser';
 import LearnLessonUser from 'Features/User/Components/GetLesson/LearnLessonUser';
+import UpdateQuiz from 'Features/Admin/Components/UpdateQuiz/UpdateQuiz';
+import Quiz from './Features/Quiz/Quiz';
 import Flashcard from 'Features/User/Pages/Flashcard/Flashcard';
 
 function App() {
@@ -27,12 +29,14 @@ function App() {
                         <Route path="searchHistory/:id" element={<SearchHistoryById />} />
                         <Route path="lesson/:id" element={<LearnLesson />} />
                         <Route path="updateLesson/:id" element={<UpdateLesson />} />
+                        <Route path="updateQuiz/:id" element={<UpdateQuiz />} />
                     </Route>
                     <Route path="createRequest" element={<CreateRequest />} />
                     <Route path="/" element={<HomeUser />} />
                     <Route path="getLesson" element={<GetLessonPage />} />
                     <Route path="user/word/:id" element={<GetWordUser />} />
                     <Route path="user/lesson/:id" element={<LearnLessonUser />} />
+                    <Route path="user/quiz/:id" element={<Quiz />} />
                     <Route path="user/lesson/:id/flashcard" element={<Flashcard />} />
                 </Route>
             </Routes>

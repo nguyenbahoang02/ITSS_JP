@@ -31,6 +31,7 @@ const LearnLessonUser = () => {
             key: 'furigana',
         },
     ];
+    console.log(data);
     const tableData = data[0]?.Words?.map((current, index) => {
         return { ...current, key: current.id, index: index + 1 };
     });
@@ -42,7 +43,7 @@ const LearnLessonUser = () => {
                 <div className="lesson-name-div">
                     <div className="lesson-name">{data[0].name}</div>
                     <div className="btn">
-                        <Button onClick={() => navigate('/')}>クイズ</Button>
+                        <Button onClick={() => navigate(`/user/quiz/${params.id}`)}>クイズ</Button>
                         <Button onClick={() => navigate(`/user/lesson/${params.id}/flashcard`)}>
                             フラッシュカード
                         </Button>
