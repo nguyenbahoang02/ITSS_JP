@@ -1,0 +1,47 @@
+.flashcard {
+    padding: 2rem;
+    font-size: 14px;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    flex-direction: column;
+    .swiper {
+        width: 1000px;
+        height: 100%;
+        .swiper-button-prev {
+            padding-right: 10px;
+            height: 80px;
+            width: 80px;
+            border: 1px solid var(--primary) !important;
+        }
+        .swiper-button-next {
+            padding-left: 10px;
+            height: 80px;
+            width: 80px;
+            border: 1px solid var(--primary) !important;
+        }
+        .swiper-slide {
+            height: 40vh;
+            text-align: center;
+            font-size: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .slide-content {
+                height: 90%;
+                width: 80%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: 1px solid var(--primary);
+            }
+        }
+    }
+    .remember-btn-area {
+        display: flex;
+        gap: 2rem;
+    }
+}
