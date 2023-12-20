@@ -5,7 +5,7 @@ import './LearnLessonUser.scss';
 import 'Features/Admin/index.scss';
 import NavBar from '../NavBar/NavBar';
 const LearnLessonUser = () => {
-    const navivate = useNavigate();
+    const navigate = useNavigate();
     const params = useParams();
     const { data, isError, isLoading } = useGetLessonQuery(params.id);
 
@@ -43,8 +43,10 @@ const LearnLessonUser = () => {
                 <div className="lesson-name-div">
                     <div className="lesson-name">{data[0].name}</div>
                     <div className="btn">
-                        <Button onClick={() => navivate(`/user/quiz/${params.id}`)}>クイズ</Button>
-                        <Button onClick={() => navivate('/')}>フラッシュカード</Button>
+                        <Button onClick={() => navigate(`/user/quiz/${params.id}`)}>クイズ</Button>
+                        <Button onClick={() => navigate(`/user/lesson/${params.id}/flashcard`)}>
+                            フラッシュカード
+                        </Button>
                     </div>
                 </div>
                 <div className="lesson-words-div">

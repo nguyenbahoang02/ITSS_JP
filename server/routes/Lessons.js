@@ -24,15 +24,14 @@ router.get('/', async (req, res) => {
 });
 
 // Get all lessons
-router.get("/", async (req, res) => {
-  try {
-    const List = await Lessons.findAll();
-    return res.json(List);
-  } catch (error) {
-    res.json(error);
-  }
+router.get('/', async (req, res) => {
+    try {
+        const List = await Lessons.findAll();
+        return res.json(List);
+    } catch (error) {
+        res.json(error);
+    }
 });
-
 
 // Get all words of Lesson
 
@@ -119,6 +118,7 @@ router.delete('/:lessonId/:wordId', validateToken, async (req, res) => {
 
     try {
         await LessonWords.destroy({ where: { LessonId, WordId } });
+        await FlashCards.destroy({ where: { LessonId, WordId } });
         res.json('SUCCESS!');
     } catch (error) {
         res.json(error);

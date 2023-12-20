@@ -14,6 +14,7 @@ import GetWordUser from 'Features/User/Components/GetWord/GetWordUser';
 import LearnLessonUser from 'Features/User/Components/GetLesson/LearnLessonUser';
 import UpdateQuiz from 'Features/Admin/Components/UpdateQuiz/UpdateQuiz';
 import Quiz from './Features/Quiz/Quiz';
+import Flashcard from 'Features/User/Pages/Flashcard/Flashcard';
 
 function App() {
     return (
@@ -36,6 +37,7 @@ function App() {
                     <Route path="user/word/:id" element={<GetWordUser />} />
                     <Route path="user/lesson/:id" element={<LearnLessonUser />} />
                     <Route path="user/quiz/:id" element={<Quiz />} />
+                    <Route path="user/lesson/:id/flashcard" element={<Flashcard />} />
                 </Route>
             </Routes>
         </BrowserRouter>
